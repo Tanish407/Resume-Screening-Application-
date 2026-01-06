@@ -1,0 +1,314 @@
+:root {
+    --primary: #228be6;
+    --secondary: #7c3aed;
+    --accent: #2c2196;
+    --lemon: #ac871a;
+    --coral: #f37b5e;
+    --mint: #c0afa7;
+    --dark: #24304a;
+    --bg: #fcfbfb;
+    --light: #f4f7fa;
+    --black: #20232a;
+}
+
+/* Background and font */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, var(--bg) 0%, var(--mint) 68%, var(--lemon) 100%);
+    min-height: 100vh;
+    color: var(--dark);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, var(--primary), var(--secondary) 80%);
+    padding: 0.8rem 1.4rem;
+    box-shadow: 0 4px 15px rgba(44, 52, 120, 0.13);
+}
+
+.nav-brand {
+    font-weight: 700;
+    color: #1a1616;
+    letter-spacing: 2px;
+    font-size: 1.27rem;
+}
+
+.nav-toggle {
+    font-size: 1.95rem;
+    background: none;
+    border: none;
+    color: #1b1111;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 2.2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li a {
+    color: #571f1f;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 7px 14px;
+    border-radius: 18px;
+    transition: background 0.2s;
+}
+
+.nav-menu li a.active,
+.nav-menu li a:hover {
+    background: linear-gradient(90deg, var(--mint), var(--coral));
+    color: var(--dark);
+}
+
+.banner {
+    background: linear-gradient(90deg, var(--primary) 50%, var(--accent) 100%);
+    color: rgb(241, 227, 227);
+    text-align: center;
+    padding: 2.7rem 1rem 1.9rem 1rem;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 4px 24px 0 rgba(44, 52, 120, 0.12);
+}
+
+.banner h1 {
+    font-size: 2.45rem;
+    margin: 0 0 0.32em 0;
+    font-weight: 700;
+}
+
+.banner p {
+    font-size: 1.16rem;
+    margin: 0;
+}
+
+main {
+    max-width: 720px;
+    margin: 38px auto 0 auto;
+    padding: 0 18px;
+}
+
+.card {
+    background: var(--light);
+    border-radius: 20px;
+    box-shadow: 0 5px 17px rgba(44, 52, 120, 0.11);
+    padding: 2.3rem 1.5rem 1.7rem 1.5rem;
+    margin-bottom: 2rem;
+    border: 2px solid var(--mint);
+    position: relative;
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 32px rgba(255, 118, 138, 0.15);
+    border-color: var(--coral);
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1.16rem;
+}
+
+.form-label span {
+    color: var(--coral);
+    font-size: .97rem;
+    margin-left: 7px;
+}
+
+.form-input {
+    padding: 12px 17px;
+    border-radius: 15px;
+    border: 2px solid var(--primary);
+    background: var(--mint);
+    font-size: 1.06rem;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.form-input:focus {
+    border-color: var(--secondary);
+    background: #e9e3e3;
+    outline: none;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--coral) 60%, var(--lemon));
+    color: var(--primary);
+    font-weight: 700;
+    border: none;
+    border-radius: 14px;
+    padding: 13px 0;
+    cursor: pointer;
+    font-size: 1.18rem;
+    box-shadow: 0 4px 14px rgba(135, 167, 165, 0.1);
+    letter-spacing: 1px;
+    transition: background 0.19s, box-shadow 0.19s;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: linear-gradient(90deg, var(--accent), var(--primary) 80%);
+    color: #fff;
+    box-shadow: 0 7px 17px rgba(44, 52, 120, 0.15);
+    outline: none;
+}
+
+.alert {
+    margin-top: 15px;
+    padding: 13px;
+    background: linear-gradient(90deg, var(--lemon), var(--coral) 60%);
+    color: var(--dark);
+    border-radius: 10px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.result-section h2 {
+    font-size: 1.41rem;
+    font-weight: 700;
+    margin-bottom: 17px;
+    color: var(--primary);
+    letter-spacing: 0.8px;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 26px;
+    margin-bottom: 15px;
+}
+
+.info-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 26px;
+    margin-bottom: 19px;
+}
+
+.data-list {
+    list-style: circle inside;
+    padding-left: 12px;
+    margin: 0 0 0 0;
+}
+
+.data-list li {
+    background: var(--mint);
+    border-radius: 8px;
+    padding: 9px 14px;
+    margin-bottom: 8px;
+    color: var(--secondary);
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(44, 52, 120, 0.07);
+}
+
+.no-data {
+    color: #aaa;
+    font-style: italic;
+    margin: 8px 0;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 42px;
+    background: linear-gradient(90deg, var(--lemon) 70%, var(--mint));
+    border-top: 1px solid var(--accent);
+    padding: 20px 0 11px 0;
+}
+
+.footer-content {
+    color: var(--black);
+    font-size: 1.09rem;
+}
+
+.footer-content a {
+    color: var(--primary);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 600;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+    color: var(--coral);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    main {
+        max-width: 100vw;
+        padding: 0 5vw;
+    }
+}
+
+@media (max-width: 700px) {
+    .banner h1 {
+        font-size: 1.46rem;
+    }
+
+    .card {
+        padding: 1.3rem 0.9rem 1.3rem 0.9rem;
+    }
+
+    .navbar {
+        padding: .7rem 5vw;
+    }
+
+    .nav-menu {
+        gap: 1.1rem;
+        font-size: 0.98rem;
+    }
+
+    .result-grid,
+    .info-flex {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        gap: 13px;
+    }
+}
+
+@media (max-width: 600px) {
+    .banner {
+        padding: 1.7rem 1vw 1.15rem 1vw;
+        border-radius: 14px;
+        font-size: 0.88rem;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 51px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(90deg, var(--primary) 80%, var(--accent) 100%);
+        flex-direction: column;
+        padding: 13px 0;
+        display: none;
+        z-index: 10;
+    }
+
+    body.nav-open .nav-menu {
+        display: flex;
+    }
+
+    .navbar {
+        position: relative;
+        z-index: 20;
+    }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Screening Application</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">ResumeScreen.ai</div>
+            <button class="nav-toggle" aria-label="Open menu"
+                onclick="document.body.classList.toggle('nav-open')">&#9776;</button>
+            <ul class="nav-menu">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Upload</a></li>
+                <li><a href="#">Results</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <div class="banner">
+            <h1>Resume Screening System</h1>
+            <p>Upload your resume and get career insights instantly.</p>
+        </div>
+    </header>
+    <main>
+        <section class="form-section card">
+            <form action="/pred" method="post" enctype="multipart/form-data" class="upload-form">
+                <label for="resume" class="form-label">Choose Resume <span>(PDF/TXT)</span></label>
+                <input type="file" id="resume" name="resume" accept=".pdf, .txt" required class="form-input">
+                <button type="submit" class="btn-primary">Submit</button>
+            </form>
+            {% if message %}
+            <div class="alert" role="alert">{{ message }}</div>
+            {% endif %}
+        </section>
+        {% if predicted_category %}
+        <section class="result-section card">
+            <h2>Screening Results</h2>
+            <div class="result-grid">
+                <div><strong>Category:</strong> {{ predicted_category }}</div>
+                <div><strong>Recommended Job:</strong> {{ recommended_job }}</div>
+            </div>
+            <div class="info-flex">
+                <div><strong>Name:</strong> {{ name }}</div>
+                <div><strong>Phone No:</strong> {{ phone }}</div>
+                <div><strong>Email:</strong> {{ email }}</div>
+            </div>
+            <h3>Skills</h3>
+            {% if extracted_skills %}
+            <ul class="data-list">
+                {% for skill in extracted_skills %}
+                <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <div class="no-data">No skills found...</div>
+            {% endif %}
+            <h3>Education</h3>
+            {% if extracted_education %}
+            <ul class="data-list">
+                {% for edu in extracted_education %}
+                <li>{{ edu }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <div class="no-data">No education data found...</div>
+            {% endif %}
+        </section>
+        {% endif %}
+    </main>
+    <footer>
+        <div class="footer-content">
+            &copy; 2025 ResumeScreen.ai | <a href="#">Privacy</a> | <a href="#">Contact</a>
+        </div>
+    </footer>
+    <script>
+        document.querySelectorAll('.nav-menu a').forEach(item => {
+            item.onclick = () => document.body.classList.remove('nav-open');
+        });
+    </script>
+</body>
+
+</html>
